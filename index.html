@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank"> 
+    <title>Omkar Chandra</title>
+    <style>
+
+      nav {
+    
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+
+    
+  }
+      body {
+        font-family: Verdana;
+        margin: 0;
+    /*    background-color:rgb(255, 255, 255);*/
+    /*    color: rgb(0, 0, 0);*/
+        padding: 50;
+      } 
+      
+      header {
+         background-color:rgb(57, 67, 174); 
+        color: rgb(255, 255, 255);
+        position: fixed;
+        width: 100%;
+        padding: 1px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      } 
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+      }
+       
+      nav a {
+        color: #e9d3dc;
+        text-decoration: none;
+        padding: 5px 30px;
+        display: block;
+
+      }
+       
+      section {
+        padding: 100px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        padding-top: 15px;
+      }
+      
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      #Publications {
+        font-size: 10px;
+      }
+  /* Style for the links */
+  .link-list a {
+    display: block; /* Convert links into block elements */
+    margin-bottom: 10px; /* Add margin between links */
+    text-decoration: none;
+}
+
+    </style>
+
+    <script>
+      // JavaScript to target header links to open in the same tab or window
+      window.onload = function() {
+          const headerLinks = document.querySelectorAll('header a');
+          headerLinks.forEach(link => {
+              link.setAttribute('target', '_self');
+          });
+      };
+  </script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#Blog">Blog</a></li>
+          <li><a href="#Omkar Chandra R">Omkar Chandra</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="Blog">
+        <h2>Blog</h2>
+        <a href="http://192.168.23.48:5500/DNA_molecules.html" style="text-decoration:none" >Turning Tapes</a>    (13th, AUG, 2023)
+
+      </section>
+      
+      <section id ="Software">
+        <h2>Software</h2>
+        <a href="https://github.com/reggenlab/GFPredict#pubmed_abtract_mining" style="text-decoration:none">GFPredict</a>
+
+      </section>
+      <section id="Omkar Chandra ">
+        <h2>Omkar Chandra</h2>
+        <p>I am a research student working on the following projects:</p>
+        1. Positive-unlabeled learning algorithm for one-class classification problems. <br>
+        2. Circulating tumor cell detecting method using mutation and expression profiles of single cells. <br>
+        <br> <br>
+        Affiliation: <a href="http://reggen.iiitd.edu.in:1207" style="text-decoration:none">RegGen Lab, IIITD</a>
+        <br> <br>
+        Contact: omkarchandra.r@gmail.com, 
+        <a href="https://twitter.com/OmkarChandra" style="text-decoration:none">Twitter/X</a>
+      </section>
+
+      
+      <div class="link-list">
+      <section id ="Publications">
+        <h4>Publications</h4>
+        <a href="https://www.sciencedirect.com/science/article/pii/S2001037023002453">>Chandra, Omkar, Madhu Sharma, Neetesh Pandey, Indra Prakash Jha, Shreya Mishra, Say Li Kong, and Vibhor Kumar. "Patterns of transcription factor binding and epigenome at promoters allow interpretable predictability of multiple functions of non-coding and coding genes." Computational and Structural Biotechnology Journal (2023).</a>
+        <a href="https://www.frontiersin.org/articles/10.3389/fgene.2021.738194/full">>Pandey, Neetesh, Omkar Chandra, Shreya Mishra, and Vibhor Kumar. "Improving chromatin-interaction prediction using single-cell open-chromatin profiles and making insight into the cis-regulatory landscape of the human brain." Frontiers in Genetics 12 (2021): 738194.</a>
+        <a href="https://academic.oup.com/bib/article-abstract/23/4/bbac241/6623725?login=true">>Sharma, Madhu, Indra Prakash Jha, Smriti Chawla, Neetesh Pandey, Omkar Chandra, Shreya Mishra, and Vibhor Kumar. "Associating pathways with diseases using single-cell expression profiles and making inferences about potential drugs." Briefings in Bioinformatics 23, no. 4 (2022): bbac241.</a>
+      </div>
+
+      </section>
+
+    </main>
+    </body>
+</html>
+
+
