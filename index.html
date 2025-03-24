@@ -4,15 +4,12 @@
   <title>Omkar Chandra - Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Kit (preferred method) -->
-  <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
-  <!-- OR Font Awesome CDN (alternative) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
+  <style>
+    /* Reset and Variables */
     :root {
       --primary-color: rgb(57, 67, 174);
       --light-bg: #FDFBF7;
@@ -21,58 +18,104 @@
       --dark-text: #ffffff;
       --accent-color: #e9d3dc;
       --transition-speed: 0.3s;
+      --header-height: 50px;
+      --footer-padding: 30px;
     }
     
     * {
       box-sizing: border-box;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
+      margin: 0;
+      padding: 0;
     }
     
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      scroll-behavior: smooth;
-      }
-      
-      body {
+    html, body {
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
       font-family: 'Roboto', Verdana, sans-serif;
       background-color: var(--light-bg);
       color: var(--light-text);
-      padding-top: 50px;
-        margin: 0;
-      } 
+      padding-top: var(--header-height); /* Exact header height */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
     
     body.dark-mode {
       background-color: var(--dark-bg);
       color: var(--dark-text);
-      } 
-      
-      header {
+    }
+    
+    /* Unified header and footer styles with EXACTLY the same dimensions */
+    header, footer {
       background-color: var(--primary-color);
-      color: #ffffff;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 999;
+      color: white;
+      width: 100%;
+      height: 50px; /* Exact same height */
+      padding: 10px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
-      } 
-      
-      nav {
-        display: flex;
-      }
-      
-      nav a {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header-specific positioning */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      justify-content: space-between;
+    }
+    
+    /* Footer-specific layout */
+    footer {
+      position: relative;
+      margin-top: 50px;
+      justify-content: center;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Flip the shadow direction */
+    }
+    
+    /* Ensure footer content is centered properly */
+    footer .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    /* Equal sizing for social link */
+    .social-links a {
+      color: white;
+      font-size: 1.2rem; /* Same size as theme toggle */
+      display: flex;
+      align-items: center;
+      height: 100%;
+      transition: transform 0.3s;
+    }
+    
+    /* Copyright text styling */
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    nav {
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
+    
+    nav a {
       color: var(--accent-color);
-        text-decoration: none;
-      padding: 15px 20px;
-        display: inline-block;
+      text-decoration: none;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      height: 100%;
       position: relative;
     }
     
@@ -96,202 +139,6 @@
       border-bottom: 3px solid #fff;
       font-weight: bold;
     }
-       
-    .container {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-      padding-bottom: 15px;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background-color: var(--primary-color);
-    }
-    
-    .blog-posts {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      margin-bottom: 50px;
-    }
-    
-    .blog-card {
-      background-color: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-    
-    body.dark-mode .blog-card {
-      background-color: #2d2d42;
-    }
-    
-    .blog-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .blog-image {
-      height: 250px;
-      background-color: #f0f0f0;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 15px;
-    }
-    
-    .blog-content {
-      padding: 25px;
-    }
-    
-    .blog-content h3 {
-      margin-top: 0;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    
-    .blog-content p {
-      margin-bottom: 20px;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-    
-    .read-more {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      display: inline-block;
-      padding: 8px 0;
-    }
-    
-    .read-more:hover {
-      text-decoration: underline;
-    }
-    
-    .languages {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
-    }
-    
-    .language-btn {
-      background: none;
-      border: 2px solid var(--primary-color);
-      color: var(--primary-color);
-      padding: 8px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    
-    .language-btn.active {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    
-    .language-btn:hover:not(.active) {
-      background-color: rgba(57, 67, 174, 0.1);
-    }
-    
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    body.dark-mode .contact-form {
-      background-color: #2d2d42;
-    }
-    
-    .form-group {
-      margin-bottom: 20px;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
-      background-color: #f9f9f9;
-    }
-    
-    body.dark-mode .form-group input,
-    body.dark-mode .form-group textarea {
-      background-color: #3a3a5a;
-      border-color: #555;
-      color: white;
-    }
-    
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    
-    .submit-btn {
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    
-    .submit-btn:hover {
-      background-color: rgb(47, 56, 145);
-    }
-    
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      margin-top: 50px;
-      background-color: var(--primary-color);
-      color: white;
-    }
-    
-    .social-links {
-      margin-bottom: 20px;
-    }
-    
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: transform 0.3s;
-      display: inline-block;
-    }
-    
-    .social-links a:hover {
-      transform: translateY(-5px);
-    }
     
     .theme-toggle {
       background: none;
@@ -299,53 +146,83 @@
       color: white;
       font-size: 1.2rem;
       cursor: pointer;
-      padding: 10px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
-    .hidden {
-      display: none;
+    /* Main Content Container */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 20px auto;
+      padding: 0 20px;
+      flex: 1 0 auto; /* Grow to push footer down */
     }
     
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Footer Styles */
+    footer {
+      flex-shrink: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      margin-top: 50px;
+      text-align: center;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
     
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      height: 30px;
     }
     
-    /* Responsive styles */
+    .social-links a {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 15px;
+      transition: transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px);
+    }
+    
+    footer p {
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        padding: 10px;
-      }
-      
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
+        padding: 0 10px;
       }
       
       nav a {
-        padding: 10px 15px;
+        padding: 0 10px;
       }
-      
-      .blog-posts {
-        grid-template-columns: 1fr;
-      }
-      }
-    </style>
+    }
+  </style>
   </head>
 
   <body>
     <header>
       <nav>
-        <a href="index.html" class="active">Blog</a>
-        <a href="about.html">About Me</a>
-        <a href="publications.html">Publications</a>
+        <a href="index.html" id="page-link-blog">Blog</a>
+        <a href="about.html" id="page-link-about">About Me</a>
+        <a href="publications.html" id="page-link-publications">Publications</a>
       </nav>
       <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
@@ -370,14 +247,16 @@
       </section>
     </div>
 
-    <footer>
-      <div class="social-links">
-        <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-      </div>
-      <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
-    </footer>
+<footer>
+  <div class="footer-content">
+    <div class="social-links">
+      <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+    </div>
+    <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
+  </div>
+</footer>
 
     <!-- Keep only necessary JavaScript -->
     <script>
