@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Publications - Omkar Chandra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --primary-color: rgb(57, 67, 174);
+        --light-bg: #FDFBF7;
+        --dark-bg: #1a1a2e;
+        --light-text: #000000;
+        --dark-text: #ffffff;
+        --accent-color: #e9d3dc;
+        --transition-speed: 0.3s;
+      }
+      
+      * {
+        box-sizing: border-box;
+        transition: background-color var(--transition-speed), color var(--transition-speed);
+      }
+      
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: Verdana, sans-serif;
+        background-color: var(--light-bg);
+        color: var(--light-text);
+        padding-top: 50px;
+        margin: 0;
+      }
+      
+      body.dark-mode {
+        background-color: var(--dark-bg);
+        color: var(--dark-text);
+      }
+      
+      body.dark-mode .publication-item {
+        border-bottom-color: #444;
+      }
+      
+      body.dark-mode a {
+        color: #a0a0ff;
+      }
+      
+      body.dark-mode h1 {
+        color: #fff;
+      }
+      
+      header {
+        background-color: var(--primary-color);
+        color: rgb(255, 255, 255);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+      
+      nav {
+        display: flex;
+      }
+      
+      nav a {
+        color: #e9d3dc;
+        text-decoration: none;
+        padding: 15px 20px;
+        display: inline-block;
+      }
+      
+      nav a.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-bottom: 3px solid #fff;
+        font-weight: bold;
+      }
+      
+      .theme-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 10px;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+      
+      .page-title {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      h1 {
+        font-size: 28px;
+        font-weight: normal;
+        color: #222;
+        margin-bottom: 20px;
+      }
+      
+      .publications-list {
+        margin-top: 30px;
+      }
+      
+      .publication-item {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .publication-item a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        line-height: 1.6;
+      }
+      
+      .publication-item a:hover {
+        color: var(--primary-color);
+      }
+      
+      .publication-year {
+        color: #666;
+        margin-top: 5px;
+        font-size: 0.9em;
+      }
+      
+      body.dark-mode .publication-year {
+        color: #aaa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Blog</a>
+        <a href="about.html">About Me</a>
+        <a href="publications.html" class="active">Publications</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </header>
+
+    <div class="container">
+      <div class="page-title">
+        <h1>Publications</h1>
+      </div>
+      
+      <div class="publications-list">
+        <div class="publication-item">
+          <a href="https://www.biorxiv.org/content/10.1101/2024.05.06.592622v1"><strong>Omkar Chandra</strong>, P. Durjay, G. Srishti, S. Jaidev, S. Madhu, N. Dubey, M. Biswarup, and K. Vibhor, "Explainable models using transcription factor binding and epigenome patterns at promoters reveal disease-associated genes and their regulators in the context of cell-types," bioRxiv, 2024.</a>
+          <div class="publication-year">2024</div>
+        </div>
+        
+        <div class="publication-item">
+          <a href="https://www.sciencedirect.com/science/article/pii/S2001037023002453"><strong>Omkar Chandra</strong>, Madhu Sharma, Neetesh Pandey, Indra Prakash Jha, Shreya Mishra, Say Li Kong, and Vibhor Kumar. "Patterns of transcription factor binding and epigenome at promoters allow interpretable predictability of multiple functions of non-coding and coding genes." Computational and Structural Biotechnology Journal (2023).</a>
+          <div class="publication-year">2023</div>
+        </div>
+        
+        <div class="publication-item">
+          <a href="https://www.frontiersin.org/articles/10.3389/fgene.2021.738194/full">Pandey Neetesh, <strong>Omkar Chandra</strong>, Shreya Mishra, and Vibhor Kumar. "Improving chromatin-interaction prediction using single-cell open-chromatin profiles and making insight into the cis-regulatory landscape of the human brain." Frontiers in Genetics 12 (2021): 738194.</a>
+          <div class="publication-year">2021</div>
+        </div>
+        
+        <div class="publication-item">
+          <a href="https://academic.oup.com/bib/article-abstract/23/4/bbac241/6623725?login=true">Sharma Madhu, Indra Prakash Jha, Smriti Chawla, Neetesh Pandey, <strong>Omkar Chandra</strong>, Shreya Mishra, and Vibhor Kumar. "Associating pathways with diseases using single-cell expression profiles and making inferences about potential drugs." Briefings in Bioinformatics 23, no. 4 (2022): bbac241.</a>
+          <div class="publication-year">2022</div>
+        </div>
+        
+        <div class="publication-item">
+          <a href="https://genome.cshlp.org/content/33/2/218.short">Mishra Shreya, Neetesh Pandey, Smriti Chawla, Madhu Sharma, <strong>Omkar Chandra</strong>, Indra Prakash Jha, Debarka SenGupta, Kedar Nath Natarajan, and Vibhor Kumar. "Matching queried single-cell open-chromatin profiles to large pools of single-cell transcriptomes and epigenomes for reference supported analysis." Genome Research 33, no. 2 (2023): 218-231.</a>
+          <div class="publication-year">2023</div>
+        </div>
+        
+        <div class="publication-item">
+          <a href="https://www.biorxiv.org/content/10.1101/2023.01.15.524115v1.full.pdf">Pandey Neetesh, Madhu Sharma, Arpit Mathur, George Anene Nzelu, Muhammad Hakimullah, Indra Prakash Jha, <strong>Omkar Chandra</strong> et al. "Deciphering the phenotypic heterogeneity and drug response in cancer cells using genome-wide activity and interaction of chromatin domains." bioRxiv (2023): 2023-01.</a>
+          <div class="publication-year">2023</div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          
+          if (body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          body.classList.add('dark-mode');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        }
+      });
+    </script>
+  </body>
+</html> 

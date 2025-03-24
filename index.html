@@ -1,146 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <base target="_blank"> 
-    <title>Omkar Chandra</title>
+  <title>Omkar Chandra - Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Kit (preferred method) -->
+  <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+  <!-- OR Font Awesome CDN (alternative) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-
-      nav {
+    :root {
+      --primary-color: rgb(57, 67, 174);
+      --light-bg: #FDFBF7;
+      --dark-bg: #1a1a2e;
+      --light-text: #000000;
+      --dark-text: #ffffff;
+      --accent-color: #e9d3dc;
+      --transition-speed: 0.3s;
+    }
     
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-
+    * {
+      box-sizing: border-box;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
     
-  }
-      body {
-        font-family: Verdana;
+      html, body {
+        height: 100%;
         margin: 0;
-    /*    background-color:rgb(255, 255, 255);*/
-    /*    color: rgb(0, 0, 0);*/
-        padding: 50;
+        padding: 0;
+      scroll-behavior: smooth;
+      }
+      
+      body {
+      font-family: 'Roboto', Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--light-text);
+      padding-top: 50px;
+        margin: 0;
+      } 
+    
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
       } 
       
       header {
-         background-color:rgb(57, 67, 174); 
-        color: rgb(255, 255, 255);
+      background-color: var(--primary-color);
+      color: #ffffff;
         position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        padding: 1px;
+        height: auto;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
       } 
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      
+      nav {
         display: flex;
-
       }
-       
+      
       nav a {
-        color: #e9d3dc;
+      color: var(--accent-color);
         text-decoration: none;
-        padding: 5px 30px;
-        display: block;
-
-      }
+      padding: 15px 20px;
+        display: inline-block;
+      position: relative;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-bottom: 3px solid #fff;
+      font-weight: bold;
+    }
        
-      section {
-        padding: 100px;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-        padding-top: 15px;
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+    
+    .blog-posts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .blog-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    body.dark-mode .blog-card {
+      background-color: #2d2d42;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .blog-image {
+      height: 250px;
+      background-color: #f0f0f0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 15px;
+    }
+    
+    .blog-content {
+      padding: 25px;
+    }
+    
+    .blog-content h3 {
+      margin-top: 0;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    
+    .blog-content p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    
+    .read-more {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      display: inline-block;
+      padding: 8px 0;
+    }
+    
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .language-btn {
+      background: none;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .language-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .language-btn:hover:not(.active) {
+      background-color: rgba(57, 67, 174, 0.1);
+    }
+    
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    body.dark-mode .contact-form {
+      background-color: #2d2d42;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      background-color: #f9f9f9;
+    }
+    
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group textarea {
+      background-color: #3a3a5a;
+      border-color: #555;
+      color: white;
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .submit-btn:hover {
+      background-color: rgb(47, 56, 145);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .social-links {
+      margin-bottom: 20px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px);
+    }
+    
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 10px;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 10px;
       }
       
-      h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
       }
       
-      #Publications {
-        font-size: 10px;
+      nav a {
+        padding: 10px 15px;
       }
-  /* Style for the links */
-  .link-list a {
-    display: block; /* Convert links into block elements */
-    margin-bottom: 10px; /* Add margin between links */
-    text-decoration: none;
-}
-
-.slanted-text {
-  font-style: italic;
-}
-
-
+      
+      .blog-posts {
+        grid-template-columns: 1fr;
+      }
+      }
     </style>
-
-    <script>
-      // JavaScript to target header links to open in the same tab or window
-      window.onload = function() {
-          const headerLinks = document.querySelectorAll('header a');
-          headerLinks.forEach(link => {
-              link.setAttribute('target', '_self');
-          });
-      };
-  </script>
-
-  
-
   </head>
-
 
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="#Blog">Blog</a></li>
-          <li><a href="#Omkar Chandra R">Omkar Chandra</a></li>
-        </ul>
+        <a href="index.html" class="active">Blog</a>
+        <a href="about.html">About Me</a>
+        <a href="publications.html">Publications</a>
       </nav>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
     </header>
 
-    <main>
+    <div class="container">
       <section id="Blog">
-        <h2>Blog</h2>
-        <!-- <a href="DNA_molecules.html" style="text-decoration:none" >DNA as cognitive <span class="slanted-text"> Turning Tapes</span></a>    (13th, AUG, 2023) <br> <br> -->
-        <a href="not_able_to_solve_human_genome.html" style="text-decoration:none" > Reductionism has only gone so far in solving the human genome</a> (30, Jun, 2024)
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-posts">
+          <article class="blog-card">
+            <div class="blog-image" style="background-image: url('dna_strand_for_blog_reductionist_genome.png')"></div>
+            <div class="blog-content">
+              <div class="blog-date">June 30, 2024</div>
+              <h3>Inefficiency in the Reductionist Approach to Solving the Human Genome</h3>
+              <p>Why has reductionism only gone so far in solving the human genome? This article examines the limitations of a bottom-up approach when dealing with the vast complexity of genomic systems, from DNA sequences to protein interactions and beyond.</p>
+              <p>The human genome is made up of hundreds of thousands of elements, with approximately 63,000 potentially functional genes, 252,000 gene products, and complex interactions across multiple biological levels.</p>
+              <a href="/not_able_to_solve_human_genome.html" class="read-more">Read Full Article</a>
+            </div>
+          </article>
+        </div>
       </section>
-      
-      <!-- <section id ="Software">
-        <h2>Software</h2>
-        <a href="https://github.com/reggenlab/GFPredict#pubmed_abtract_mining" style="text-decoration:none">GFPredict</a> -->
+    </div>
 
-      <!-- </section>
-      <section id="Omkar Chandra ">
-        <h2>Omkar Chandra</h2>
-        <p>I am a research student working on the following projects:</p>
-        1. Positive-unlabeled learning algorithm for one-class classification problems. <br>
-        2. Circulating tumor cell detecting method using mutation and expression profiles of single cells. <br>
-        <br> <br>
-        Affiliation: <a href="http://reggen.iiitd.edu.in:1207" style="text-decoration:none">RegGen Lab, IIITD</a>
-        <br> <br>
-        Contact: omkarchandra.r@gmail.com, 
-        <a href="https://twitter.com/OmkarChandra" style="text-decoration:none">Twitter/X</a>
-      </section> -->
-
-      
-      <div class="link-list">
-      <section id ="Publications">
-        <h4>Publications</h4>
-        <a href="https://www.biorxiv.org/content/10.1101/2024.05.06.592622v1">>Omkar Chandra, P. Durjay, G. Srishti, S. Jaidev, S. Madhu, N. Dubey, M. Biswarup, and K. Vibhor, “Explainable models using transcription factor binding and epigenome patterns at promoters reveal disease-associated genes and their regulators in the context of cell-types,” bioRxiv, 2024.</a>
-        <a href="https://www.sciencedirect.com/science/article/pii/S2001037023002453">>Omkar Chandra, Madhu Sharma, Neetesh Pandey, Indra Prakash Jha, Shreya Mishra, Say Li Kong, and Vibhor Kumar. "Patterns of transcription factor binding and epigenome at promoters allow interpretable predictability of multiple functions of non-coding and coding genes." Computational and Structural Biotechnology Journal (2023).</a>
-        <a href="https://www.frontiersin.org/articles/10.3389/fgene.2021.738194/full">>Pandey Neetesh, Omkar Chandra, Shreya Mishra, and Vibhor Kumar. "Improving chromatin-interaction prediction using single-cell open-chromatin profiles and making insight into the cis-regulatory landscape of the human brain." Frontiers in Genetics 12 (2021): 738194.</a>
-        <a href="https://academic.oup.com/bib/article-abstract/23/4/bbac241/6623725?login=true">>Sharma Madhu, Indra Prakash Jha, Smriti Chawla, Neetesh Pandey, Omkar Chandra, Shreya Mishra, and Vibhor Kumar. "Associating pathways with diseases using single-cell expression profiles and making inferences about potential drugs." Briefings in Bioinformatics 23, no. 4 (2022): bbac241.</a>
-        <a href="https://genome.cshlp.org/content/33/2/218.short">>Mishra Shreya, Neetesh Pandey, Smriti Chawla, Madhu Sharma, Omkar Chandra, Indra Prakash Jha, Debarka SenGupta, Kedar Nath Natarajan, and Vibhor Kumar. "Matching queried single-cell open-chromatin profiles to large pools of single-cell transcriptomes and epigenomes for reference supported analysis." Genome Research 33, no. 2 (2023): 218-231.</a>
-        <a href="https://www.biorxiv.org/content/10.1101/2023.01.15.524115v1.full.pdf">>Pandey Neetesh, Madhu Sharma, Arpit Mathur, George Anene Nzelu, Muhammad Hakimullah, Indra Prakash Jha, Omkar Chandra et al. "Deciphering the phenotypic heterogeneity and drug response in cancer cells using genome-wide activity and interaction of chromatin domains." bioRxiv (2023): 2023-01.</a>
-      
+    <footer>
+      <div class="social-links">
+        <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
       </div>
+      <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
+    </footer>
 
-      </section>
-
-    </main>
-    </body>
+    <!-- Keep only necessary JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Current year for footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          
+          if (body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          body.classList.add('dark-mode');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        }
+      });
+    </script>
+  </body>
 </html>
+
 
 
