@@ -162,6 +162,91 @@
       flex: 1 0 auto; /* Grow to push footer down */
     }
     
+    /* Blog Post Styling - Improved */
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+    }
+    
+    .blog-posts {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .blog-card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    body.dark-mode .blog-card {
+      background-color: #2d2d42;
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .blog-image {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .blog-content {
+      padding: 1.5rem;
+    }
+    
+    .blog-date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+    
+    body.dark-mode .blog-date {
+      color: #aaa;
+    }
+    
+    .blog-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+      color: var(--primary-color);
+    }
+    
+    body.dark-mode .blog-card h3 {
+      color: #a0a0ff;
+    }
+    
+    .blog-card p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .read-more {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .read-more:hover {
+      background-color: rgb(45, 53, 140);
+    }
+    
     /* Footer Styles */
     footer {
       flex-shrink: 0;
