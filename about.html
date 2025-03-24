@@ -238,6 +238,19 @@
       .contact a:hover {
         text-decoration: underline;
       }
+
+      /* SVG icon styling */
+      .social-icon {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1); /* Makes any SVG white */
+        transition: transform 0.3s;
+        vertical-align: middle;
+      }
+
+      .social-links a:hover .social-icon {
+        transform: translateY(-5px);
+      }
     </style>
   </head>
 
@@ -310,10 +323,10 @@
       <div class="footer-content">
         <div class="social-links">
           <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
-            <i class="fa-brands fa-x-twitter"></i>
+            <img src="x-twitter-brands-solid.svg" alt="X/Twitter" class="social-icon">
           </a>
         </div>
-        <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
+        <p>© <span id="currentYear">2025</span>&nbsp;Omkar Chandra. All rights reserved.</p>
       </div>
     </footer>    
 

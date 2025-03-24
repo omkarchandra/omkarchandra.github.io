@@ -259,34 +259,44 @@
       box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
     
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    /* SVG icon styling with proper alignment */
     .social-links {
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
-      height: 30px;
+      height: 24px;
     }
     
-    .social-links a {
-      color: white;
-      font-size: 1.8rem;
-      margin: 0 15px;
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1); /* Makes any SVG white */
       transition: transform 0.3s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+      vertical-align: middle;
     }
     
-    .social-links a:hover {
-      transform: translateY(-5px);
-    }
-    
+    /* Ensure copyright text aligns properly */
     footer p {
       margin: 0;
       padding: 0;
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 24px; /* Match the icon height */
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Improve the wrapping behavior on small screens */
+    @media (max-width: 500px) {
+      .footer-content {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
     
     /* Responsive adjustments */
@@ -298,6 +308,45 @@
       nav a {
         padding: 0 10px;
       }
+    }
+    
+    /* Fix for social icons */
+    .social-links a {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 15px;
+      transition: transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+    }
+    
+    /* Fallback text in case icon doesn't load */
+    .icon-fallback {
+      font-size: 1rem;
+      margin-left: 5px;
+      display: none;
+    }
+    
+    /* Show fallback if icon fails to load */
+    .fa-x-twitter:not(:before) + .icon-fallback {
+      display: inline;
+    }
+    
+    /* Additional check for Font Awesome */
+    .social-links a:before {
+      font-family: 'Font Awesome 6 Brands';
+      content: "\f26d";  /* Backup icon code */
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .social-links a:hover .social-icon {
+      transform: translateY(-5px);
     }
   </style>
   </head>
@@ -336,10 +385,10 @@
   <div class="footer-content">
     <div class="social-links">
       <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
-        <i class="fa-brands fa-x-twitter"></i>
+        <img src="x-twitter-brands-solid.svg" alt="X/Twitter" class="social-icon">
       </a>
     </div>
-    <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
+    <p>© <span id="currentYear">2025</span>&nbsp;Omkar Chandra. All rights reserved.</p>
   </div>
 </footer>
 
@@ -375,6 +424,27 @@
           icon.classList.remove('fa-moon');
           icon.classList.add('fa-sun');
         }
+      });
+
+      // Check if Font Awesome loaded properly
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          const iconElements = document.querySelectorAll('.fa-x-twitter');
+          iconElements.forEach(function(icon) {
+            // Check if icon is rendered properly
+            if (getComputedStyle(icon, ':before').content === 'none' || 
+                getComputedStyle(icon, ':before').content === '') {
+              // If icon didn't load, show fallback
+              const fallback = icon.nextElementSibling;
+              if (fallback && fallback.classList.contains('icon-fallback')) {
+                fallback.style.display = 'inline';
+              }
+              // Alternative: try loading alternative Twitter icon
+              icon.classList.remove('fa-x-twitter');
+              icon.classList.add('fa-twitter');
+            }
+          });
+        }, 500);  // Give Font Awesome time to load
       });
     </script>
   </body>

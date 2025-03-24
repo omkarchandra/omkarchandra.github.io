@@ -145,6 +145,67 @@
       body.dark-mode .publication-year {
         color: #aaa;
       }
+      
+      /* Footer Styles */
+      footer {
+        flex-shrink: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        margin-top: 50px;
+        text-align: center;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+      }
+      
+      /* Footer content styling */
+      .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        height: 30px;
+      }
+      
+      .social-links a {
+        color: white;
+        font-size: 1.8rem;
+        margin: 0 15px;
+        transition: transform 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      
+      .social-links a:hover {
+        transform: translateY(-5px);
+      }
+      
+      /* SVG icon styling */
+      .social-icon {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1); /* Makes any SVG white */
+        transition: transform 0.3s;
+        vertical-align: middle;
+      }
+      
+      footer p {
+        margin: 0;
+        padding: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
     </style>
   </head>
 
@@ -198,6 +259,17 @@
       </div>
     </div>
     
+    <footer>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
+            <img src="x-twitter-brands-solid.svg" alt="X/Twitter" class="social-icon">
+          </a>
+        </div>
+        <p>© <span id="currentYear">2025</span>&nbsp;Omkar Chandra. All rights reserved.</p>
+      </div>
+    </footer>
+    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // Theme toggle functionality
@@ -226,6 +298,9 @@
           icon.classList.remove('fa-moon');
           icon.classList.add('fa-sun');
         }
+        
+        // Current year for footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
       });
     </script>
   </body>
