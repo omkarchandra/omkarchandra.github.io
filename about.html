@@ -16,6 +16,45 @@
       }
       
 
+          /* Footer-specific layout */
+    footer {
+      position: relative;
+      margin-top: 50px;
+      justify-content: center;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Flip the shadow direction */
+    }
+    
+    /* Ensure footer content is centered properly */
+    footer .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    /* Equal sizing for social link */
+    .social-links a {
+      color: white;
+      font-size: 1.2rem; /* Same size as theme toggle */
+      display: flex;
+      align-items: center;
+      height: 100%;
+      transition: transform 0.3s;
+    }
+    
+    /* Copyright text styling */
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    nav {
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
+
+
       * {
         box-sizing: border-box;
         transition: background-color var(--transition-speed), color var(--transition-speed);
@@ -66,11 +105,63 @@
         padding: 0 20px;
       }
       
+      /* Footer Styles - Updated for uniformity */
+      footer {
+        flex-shrink: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        margin-top: 50px;
+        text-align: center;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+      }
+      
+      /* Ensure footer content is centered properly */
+      footer .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        height: 30px;
+      }
+      
+      .social-links a {
+        color: white;
+        font-size: 1.8rem;
+        margin: 0 15px;
+        transition: transform 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      
+      .social-links a:hover {
+        transform: translateY(-5px);
+      }
+      
+      footer p {
+        margin: 0;
+        padding: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      
       nav {
         display: flex;
         padding: 0;
       }
-      
+            
       nav a {
         color: #e9d3dc;
         text-decoration: none;
@@ -216,14 +307,16 @@
     </div>
     
     <footer>
-      <div class="social-links">
-        <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+        <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
       </div>
-      <p>© <span id="currentYear">2025</span> Omkar Chandra. All rights reserved.</p>
-    </footer>
-    
+    </footer>    
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const themeToggle = document.getElementById('themeToggle');
