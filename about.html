@@ -255,6 +255,28 @@
       .social-links a:hover .social-icon {
         transform: translateY(-5px);
       }
+
+      /* Publications button */
+      .hidden-pub-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(57, 67, 174, 0.7);
+        color: rgba(255, 255, 255, 0.9);
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        text-decoration: none;
+        opacity: 0.8;
+        z-index: 100;
+      }
+
+      .hidden-pub-btn:hover {
+        opacity: 1;
+        background-color: rgba(57, 67, 174, 0.9);
+      }
     </style>
   </head>
 
@@ -263,7 +285,6 @@
       <nav>
         <a href="index.html">Blog</a>
         <a href="about.html" class="active">About Me</a>
-        <a href="publications.html">Publications</a>
       </nav>
       <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
@@ -348,7 +369,9 @@
         </div>
         <p>© <span id="currentYear">2025</span>&nbsp;Omkar Chandra. All rights reserved.</p>
       </div>
-    </footer>    
+    </footer>
+
+    <a href="publications.html" class="hidden-pub-btn">publications</a>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
