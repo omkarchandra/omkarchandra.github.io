@@ -155,8 +155,9 @@
       background-color: #fff;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 20px;
     }
     
     body.dark-mode .blog-card {
@@ -164,8 +165,8 @@
     }
     
     .blog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
     
     .blog-image {
@@ -176,34 +177,32 @@
     }
     
     .blog-content {
-      padding: 1.5rem;
-    }
-    
-    .blog-date {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 0.5rem;
-      font-weight: 300;
-    }
-    
-    body.dark-mode .blog-date {
-      color: #aaa;
+      padding: 0;
     }
     
     .blog-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      margin: 0;
       line-height: 1.4;
-      color: var(--primary-color);
+      color: #222;
     }
     
     body.dark-mode .blog-card h3 {
-      color: #a0a0ff;
+      color: #fff;
     }
     
-    .blog-card p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
+    .blog-card h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .blog-card h3 a:hover {
+      color: var(--primary-color);
+    }
+    
+    body.dark-mode .blog-card h3 a:hover {
+      color: #a0a0ff;
     }
     
     .read-more {
@@ -416,16 +415,10 @@
 
     <div class="container">
       <section id="Blog">
-        <h2 class="section-title">Blog Posts</h2>
         <div class="blog-posts">
           <article class="blog-card">
-            <div class="blog-image" style="background-image: url('dna_strand_for_blog_reductionist_genome.png')"></div>
             <div class="blog-content">
-              <div class="blog-date">June 30, 2024</div>
-              <h3>Inefficiency in the Reductionist Approach to Solving the Human Genome</h3>
-              <p>Why has reductionism only gone so far in solving the human genome? This article examines the limitations of a bottom-up approach when dealing with the vast complexity of genomic systems, from DNA sequences to protein interactions and beyond.</p>
-              <p>The human genome is made up of hundreds of thousands of elements, with approximately 63,000 potentially functional genes, 252,000 gene products, and complex interactions across multiple biological levels.</p>
-              <a href="/not_able_to_solve_human_genome.html" class="read-more">Read Full Article</a>
+              <h3><a href="/not_able_to_solve_human_genome.html">Inefficiency in the Reductionist Approach to Solving the Human Genome</a></h3>
             </div>
           </article>
         </div>
