@@ -183,26 +183,34 @@
           color: #e0e0e0;
         }
         
-        /* Updated footer styles to match other pages */
+        /* Footer Styles - Updated for uniformity */
         footer {
           flex-shrink: 0;
           width: 100%;
           background-color: var(--primary-color);
           color: white;
-          padding: 10px 20px;
-          margin-top: 50px;
-          text-align: center;
+          padding: 15px 20px;
+          margin-top: auto;
           box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-          display: flex;
-          justify-content: center;
+          position: relative;
         }
         
-        /* Footer content styling */
+        /* Footer content layout */
         .footer-content {
           display: flex;
           align-items: center;
-          justify-content: center;
-          gap: 20px;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .footer-left {
+          margin-right: auto;
+        }
+        
+        .footer-right {
+          margin-left: auto;
         }
         
         .social-links {
@@ -235,6 +243,79 @@
           filter: brightness(0) invert(1); /* Makes any SVG white */
           transition: transform 0.3s;
           vertical-align: middle;
+        }
+
+        /* Footer left side - Twitter/X icon */
+        .footer-social {
+          color: white;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.9;
+        }
+
+        .footer-social:hover {
+          opacity: 1;
+          transform: scale(1.15);
+        }
+
+        .footer-social .social-icon {
+          width: 18px;
+          height: 18px;
+          filter: brightness(0) invert(1);
+        }
+
+        /* Footer right side - Publications button */
+        .footer-pub-btn {
+          color: white;
+          border: none;
+          padding: 0;
+          font-size: 12px;
+          cursor: pointer;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          opacity: 0.9;
+        }
+
+        .footer-pub-btn:hover {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+
+        /* Responsive footer adjustments */
+        @media (max-width: 768px) {
+          footer {
+            padding: 12px 15px;
+          }
+
+          .footer-social .social-icon {
+            width: 16px;
+            height: 16px;
+          }
+
+          .footer-pub-btn {
+            font-size: 11px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          footer {
+            padding: 10px;
+          }
+
+          .footer-social .social-icon {
+            width: 14px;
+            height: 14px;
+          }
+
+          .footer-pub-btn {
+            font-size: 10px;
+          }
         }
         
         footer p {
@@ -335,24 +416,19 @@
 
     <footer>
       <div class="footer-content">
-        <div class="social-links">
-          <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile">
+        <div class="footer-left">
+          <a href="https://x.com/OmkarChandra" target="_blank" aria-label="Twitter/X Profile" class="footer-social">
             <img src="x-twitter-brands-solid.svg" alt="X/Twitter" class="social-icon">
           </a>
         </div>
-        <p>© <span id="currentYear">2025</span>&nbsp;Omkar Chandra. All rights reserved.</p>
+        <div class="footer-right">
+          <a href="publications.html" class="footer-pub-btn">publications</a>
+        </div>
       </div>
     </footer>
 
-    <a href="publications.html" class="hidden-pub-btn">publications</a>
-
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Current year for footer
-        const yearSpan = document.getElementById('currentYear');
-        if (yearSpan) {
-          yearSpan.textContent = new Date().getFullYear();
-        }
         
         // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
