@@ -82,3 +82,24 @@ Add a new `<li>` inside the Books `<ul class="favorites-list">`:
 - `omkarchandra.github.io`: `https://github.com/omkarchandra/omkarchandra.github.io.git` (HTTPS - use this for pushing)
 
 Always push via the HTTPS remote: `git push omkarchandra.github.io main`
+
+## Git Workflow
+
+When committing and pushing changes:
+
+1. Stage specific files (avoid `git add .` or `git add -A`):
+   ```bash
+   git add about.html index.html
+   ```
+
+2. Commit with a clear message:
+   ```bash
+   git commit -m "Add book title to reading list"
+   ```
+
+3. Push using the **HTTPS remote** (SSH key is not configured):
+   ```bash
+   git push omkarchandra.github.io main
+   ```
+
+Do **not** use `git push origin main` — the `origin` remote uses SSH and will fail with a permission denied error.
