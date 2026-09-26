@@ -1,0 +1,7 @@
+# macOS metadata (AppleDouble) files
+.DS_Store
+._*
+
+# Local agent / editor config
+.claude/
+.cursor/
