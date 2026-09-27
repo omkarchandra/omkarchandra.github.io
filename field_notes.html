@@ -153,9 +153,9 @@
 
     /* Note card */
     .note-card {
-      border: 1px solid rgba(57, 67, 174, 0.25);
-      border-radius: 8px;
-      padding: 1.5rem;
+      border: 1px solid rgba(57, 67, 174, 0.15);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
       margin-bottom: 2rem;
       max-width: 800px;
     }
@@ -165,16 +165,16 @@
     }
 
     .note-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.15rem;
+      font-weight: 500;
       line-height: 1.4;
-      margin-bottom: 0.75rem;
-      color: var(--primary-color);
+      margin-bottom: 0.25rem;
     }
 
     .note-meta {
-      font-size: 0.85rem;
-      opacity: 0.75;
-      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-bottom: 0.75rem;
     }
 
     .note-card p {
@@ -182,10 +182,18 @@
       margin-bottom: 1rem;
     }
 
-    .note-card h4 {
-      color: var(--primary-color);
-      margin: 1.25rem 0 0.5rem 0;
-      font-size: 1.05rem;
+    .note-card details {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .note-card summary {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    .note-card details ul {
+      margin-top: 0.5rem;
     }
 
     .note-card ul {
@@ -197,80 +205,37 @@
       margin-bottom: 0.4rem;
     }
 
-    .read-more {
-      display: inline-block;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      margin-top: 0.5rem;
-      font-weight: 500;
-      transition: background-color 0.3s;
-    }
-
-    .read-more:hover {
-      background-color: rgb(45, 53, 140);
-    }
-
-    .read-more i {
-      margin-right: 0.5rem;
-    }
-
-    /* Animations section */
-    .video-featured {
-      max-width: 800px;
-      margin-bottom: 2.5rem;
-    }
-
-    .video-featured video {
+    .note-video {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 6px;
       display: block;
       background: #000;
+      margin-bottom: 0.4rem;
     }
 
-    .video-featured figcaption {
-      font-size: 0.9rem;
-      opacity: 0.75;
-      margin-top: 0.5rem;
-      line-height: 1.5;
+    .downloads {
+      list-style: none;
+      margin: 0 !important;
+      font-size: 0.95rem;
     }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .video-card {
-      border: 1px solid rgba(57, 67, 174, 0.25);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    body.dark-mode .video-card {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .video-card video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      display: block;
-      background: #000;
-    }
-
-    .video-card .video-caption {
-      padding: 0.75rem 1rem;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    .video-card .video-caption strong {
+    .downloads a {
       color: var(--primary-color);
-      display: block;
-      margin-bottom: 0.25rem;
+      text-decoration: none;
+    }
+
+    .downloads a:hover {
+      text-decoration: underline;
+    }
+
+    body.dark-mode .downloads a {
+      color: var(--accent-color);
+    }
+
+    .downloads span {
+      font-size: 0.8rem;
+      opacity: 0.55;
+      margin-left: 0.25rem;
     }
 
     /* Responsive adjustments */
@@ -312,119 +277,36 @@
 
         <div class="blog-posts">
           <article class="note-card">
-            <h3>Electrophysiology Field Notes — Expanded Study Guide</h3>
-            <div class="note-meta">
-              <i class="fas fa-file-pdf"></i> PDF &middot; 57 pages &middot; based on sessions from Sep 10 &amp; Sep 21, 2026
-            </div>
+            <h3>Electrophysiology Study Guide</h3>
+            <div class="note-meta">PDF &middot; 57 pages &middot; Sep 2026</div>
             <p>
-              A study guide covering patch-clamp electrophysiology from the bench up: brain-slice
-              preparation and rig basics, aCSF and the Nernst equation, synaptic plasticity,
-              cell-attached recording, and Cs⁺-based internal solutions. It was built directly on
-              31 pages of handwritten notes taken across three lab sessions — an undated
-              slice-prep/rig session, cultured neurons with astrocyte co-cultures (Sep 10, 2026),
-              and aCSF, Nernst, plasticity, cell-attached and Cs⁺ internals (Sep 21, 2026).
+              Patch-clamp fundamentals, from slice prep to Cs⁺ internals — expanded from
+              31 pages of handwritten lab notes.
             </p>
+            <details>
+              <summary>How it was made</summary>
+              <ul>
+                <li>Scanned notebook pages, transcribed in order and expanded by Claude (Opus 5.5).</li>
+                <li>19 figures simulated from standard models — no real data.</li>
+                <li>Unclear handwriting and odd values flagged in Appendix C, not changed.</li>
+                <li>Typeset in LaTeX.</li>
+              </ul>
+            </details>
+            <video class="note-video" controls preload="metadata">
+              <source src="files/videos/00_ephys_fundamentals_full_course.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <div class="note-meta">Animated overview &middot; 4:21</div>
 
-            <h4>How it was created</h4>
-            <ul>
-              <li>The handwritten notebook pages were scanned to PDF and given to Claude (Opus 5.5) for expansion.</li>
-              <li>Every page was transcribed and kept in the notebook's original order, with its original headings and flow.</li>
-              <li>Each entry was then expanded with background, context, and the underlying physics — written to teach the fundamentals from first principles.</li>
-              <li>19 figures were simulated from standard models (a Hodgkin–Huxley action potential, clamp protocols, I–V curves, Nernst calculations), with consistent colour coding throughout (K⁺ blue, Na⁺ orange, and so on). None of the figures use real data.</li>
-              <li>9 animations are embedded in the PDF (they play in Adobe Acrobat Reader or Okular), and are also included below as videos that play in any browser.</li>
-              <li>A "dig deeper" note in the margin of the Cs⁺ internal-solution page became the guide's longest section: why Cs⁺ is used, gluconate vs chloride, separating EPSCs from IPSCs by holding potential, a typical recipe, and pitfalls.</li>
-              <li>A box in the cerebellum section links Purkinje-cell electrophysiology to the SCA1 literature.</li>
-              <li>Ambiguous handwriting and values that looked off were flagged rather than silently changed — all listed in Appendix C.</li>
-              <li>The final guide was typeset in LaTeX.</li>
+            <ul class="downloads">
+              <li><a href="files/electrophysiology_field_notes_study_guide.pdf" target="_blank">Read the PDF</a>
+                &middot; <a href="files/electrophysiology_field_notes_study_guide.pdf" download>download</a> <span>10.7 MB</span></li>
+              <li><a href="files/videos/00_ephys_fundamentals_full_course.mp4" download>Download the overview video</a> <span>MP4 &middot; 3.6 MB</span></li>
+              <li><a href="files/ephys_animation_clips.zip" download>Download the 9 topic clips</a> <span>ZIP &middot; 3.2 MB</span></li>
             </ul>
-
-            <a class="read-more" href="files/electrophysiology_field_notes_study_guide.pdf" target="_blank">
-              <i class="fas fa-book-open"></i>Read the study guide (PDF)
-            </a>
           </article>
         </div>
 
-        <h3 class="section-title" style="font-size: 1.4rem;">Animations</h3>
-        <p class="field-notes-intro">
-          The same concepts as animated videos — play them right here in the browser.
-        </p>
-
-        <figure class="video-featured">
-          <video controls preload="metadata">
-            <source src="files/videos/00_ephys_fundamentals_full_course.mp4" type="video/mp4">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption><strong>Full course — Electrophysiology fundamentals (4:21).</strong>
-          Everything in one pass: resting potential and the Nernst equation, the action potential,
-          voltage vs current clamp, seal test through break-in, I–V curves, the NMDA block,
-          separating EPSCs and IPSCs, and sampling rate.</figcaption>
-        </figure>
-
-        <div class="video-grid">
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/01_resting_potential.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>1 · Resting potential &amp; Nernst</strong>
-            How ion gradients and selective permeability set the membrane voltage.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/02_action_potential.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>2 · The action potential</strong>
-            Channel by channel: Na⁺ activation, repolarization by K⁺, after-hyperpolarization.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/03_voltage_vs_current_clamp.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>3 · Voltage vs current clamp</strong>
-            What each mode controls, and what it tells you about a cell.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/04_seal_test_breakin.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>4 · Seal test through break-in</strong>
-            Reading the pipette resistance, gigaseal formation, and whole-cell access.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/05_voltage_clamp_iv.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>5 · Voltage-clamp I–V</strong>
-            Step protocols and the current–voltage relationships they reveal.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/06_current_clamp_steps.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>6 · Current-clamp steps &amp; F–I curve</strong>
-            Injecting current steps and the firing-rate response of a neuron.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/07_nmda_mg_block_plasticity.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>7 · NMDA Mg²⁺ block &amp; plasticity</strong>
-            Voltage-dependent magnesium block and its role in synaptic plasticity.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/08_isolating_epsc_ipsc.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>8 · Isolating EPSCs &amp; IPSCs</strong>
-            Using a Cs⁺-based internal and holding potentials to separate excitation from inhibition.</figcaption>
-          </figure>
-          <figure class="video-card">
-            <video controls preload="metadata">
-              <source src="files/videos/09_sampling_rate.mp4" type="video/mp4">
-            </video>
-            <figcaption class="video-caption"><strong>9 · Sampling rate</strong>
-            Why digitization rate matters, and aliasing when it's too low.</figcaption>
-          </figure>
-        </div>
       </section>
     </div>
 
