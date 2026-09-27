@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Omkar Chandra - Field Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Variables */
+    :root {
+      --primary-color: rgb(57, 67, 174);
+      --light-bg: #FDFBF7;
+      --dark-bg: #1a1a2e;
+      --light-text: #000000;
+      --dark-text: #ffffff;
+      --accent-color: #e9d3dc;
+      --transition-speed: 0.3s;
+      --header-height: 50px;
+      --footer-padding: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--light-text);
+      padding-top: var(--header-height); /* Exact header height */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    /* Unified header and footer styles with EXACTLY the same dimensions */
+    header, footer {
+      background-color: var(--primary-color);
+      color: white;
+      width: 100%;
+      height: 50px; /* Exact same height */
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header-specific positioning */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      justify-content: space-between;
+    }
+
+    /* Footer-specific layout */
+    footer {
+      position: relative;
+      margin-top: 50px;
+      justify-content: center;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Flip the shadow direction */
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      padding: 15px 20px;
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-bottom: 3px solid #fff;
+      font-weight: bold;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Main Content Container */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 20px auto;
+      padding: 0 20px;
+      flex: 1 0 auto; /* Grow to push footer down */
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .field-notes-intro {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+
+    /* Note card */
+    .note-card {
+      border: 1px solid rgba(57, 67, 174, 0.25);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+
+    body.dark-mode .note-card {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .note-card h3 {
+      font-size: 1.3rem;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+      color: var(--primary-color);
+    }
+
+    .note-meta {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-bottom: 1rem;
+    }
+
+    .note-card p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .note-card h4 {
+      color: var(--primary-color);
+      margin: 1.25rem 0 0.5rem 0;
+      font-size: 1.05rem;
+    }
+
+    .note-card ul {
+      margin: 0 0 1rem 1.25rem;
+    }
+
+    .note-card li {
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .read-more {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .read-more:hover {
+      background-color: rgb(45, 53, 140);
+    }
+
+    .read-more i {
+      margin-right: 0.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 10px;
+      }
+
+      nav a {
+        padding: 0 10px;
+      }
+
+      .note-card {
+        padding: 1rem;
+      }
+    }
+  </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" id="page-link-blog">Blog</a>
+        <a href="field_notes.html" id="page-link-fieldnotes" class="active">Field Notes</a>
+        <a href="about.html" id="page-link-about">About Me</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </header>
+
+    <div class="container">
+      <section id="FieldNotes">
+        <h2 class="section-title">Field Notes</h2>
+        <p class="field-notes-intro">
+          Lab notebooks, bench notes, and experiment records from my electrophysiology work —
+          expanded into study guides so the fundamentals behind each entry are easy to revisit.
+        </p>
+
+        <div class="blog-posts">
+          <article class="note-card">
+            <h3>Electrophysiology Field Notes — Expanded Study Guide</h3>
+            <div class="note-meta">
+              <i class="fas fa-file-pdf"></i> PDF &middot; 57 pages &middot; based on sessions from Sep 10 &amp; Sep 21, 2026
+            </div>
+            <p>
+              A study guide covering patch-clamp electrophysiology from the bench up: brain-slice
+              preparation and rig basics, aCSF and the Nernst equation, synaptic plasticity,
+              cell-attached recording, and Cs⁺-based internal solutions. It was built directly on
+              31 pages of handwritten notes taken across three lab sessions — an undated
+              slice-prep/rig session, cultured neurons with astrocyte co-cultures (Sep 10, 2026),
+              and aCSF, Nernst, plasticity, cell-attached and Cs⁺ internals (Sep 21, 2026).
+            </p>
+
+            <h4>How it was created</h4>
+            <ul>
+              <li>The handwritten notebook pages were scanned to PDF and given to Claude (Opus 5.5) for expansion.</li>
+              <li>Every page was transcribed and kept in the notebook's original order, with its original headings and flow.</li>
+              <li>Each entry was then expanded with background, context, and the underlying physics — written to teach the fundamentals from first principles.</li>
+              <li>19 figures were simulated from standard models (a Hodgkin–Huxley action potential, clamp protocols, I–V curves, Nernst calculations), with consistent colour coding throughout (K⁺ blue, Na⁺ orange, and so on). None of the figures use real data.</li>
+              <li>9 animations are embedded in the PDF itself; they play in Adobe Acrobat Reader or Okular.</li>
+              <li>A "dig deeper" note in the margin of the Cs⁺ internal-solution page became the guide's longest section: why Cs⁺ is used, gluconate vs chloride, separating EPSCs from IPSCs by holding potential, a typical recipe, and pitfalls.</li>
+              <li>A box in the cerebellum section links Purkinje-cell electrophysiology to the SCA1 literature.</li>
+              <li>Ambiguous handwriting and values that looked off were flagged rather than silently changed — all listed in Appendix C.</li>
+              <li>The final guide was typeset in LaTeX.</li>
+            </ul>
+
+            <a class="read-more" href="files/electrophysiology_field_notes_study_guide.pdf" target="_blank">
+              <i class="fas fa-book-open"></i>Read the study guide (PDF)
+            </a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+      </div>
+    </footer>
+
+    <!-- Keep only necessary JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+
+          if (body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          body.classList.add('dark-mode');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        }
+      });
+    </script>
+  </body>
+</html>
