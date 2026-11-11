@@ -1,457 +1,103 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Inefficiency in the Reductionist Approach to Solving the Human Genome</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-          --primary-color: rgb(57, 67, 174);
-          --light-bg: #FDFBF7;
-          --dark-bg: #1a1a2e;
-          --light-text: #000000;
-          --dark-text: #ffffff;
-          --accent-color: #e9d3dc;
-          --transition-speed: 0.3s;
-        }
-        
-        * {
-          box-sizing: border-box;
-          transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-        
-        html, body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          scroll-behavior: smooth;
-        }
-        
-        body {
-          font-family: 'Roboto', Verdana, sans-serif;
-          background-color: var(--light-bg);
-          color: var(--light-text);
-          padding-top: 50px;
-          margin: 0;
-        } 
-        
-        body.dark-mode {
-          background-color: var(--dark-bg);
-          color: var(--dark-text);
-        } 
-        
-        header {
-          background-color: var(--primary-color);
-          color: #ffffff;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: auto;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          z-index: 999;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0 20px;
-        } 
-        
-        nav {
-          display: flex;
-        }
-        
-        nav a {
-          color: var(--accent-color);
-          text-decoration: none;
-          padding: 15px 20px;
-          display: inline-block;
-          position: relative;
-        }
-        
-        nav a::after {
-          content: '';
-          position: absolute;
-          width: 0;
-          height: 3px;
-          bottom: 0;
-          left: 0;
-          background-color: #fff;
-          transition: width 0.3s;
-        }
-        
-        nav a:hover::after {
-          width: 100%;
-        }
-        
-        nav a.active {
-          background-color: rgba(255, 255, 255, 0.2);
-          border-bottom: 3px solid #fff;
-          font-weight: bold;
-        }
-        
-        .theme-toggle {
-          background: none;
-          border: none;
-          color: white;
-          font-size: 1.2rem;
-          cursor: pointer;
-          padding: 10px;
-        }
-        
-        .container {
-          max-width: 800px;
-          margin: 70px auto 30px;
-          padding: 20px;
-        }
-        
-        .article-header {
-          margin-bottom: 30px;
-          padding-bottom: 20px;
-          border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .article-header h1 {
-          font-size: 32px;
-          color: var(--primary-color);
-          margin-bottom: 10px;
-        }
-        
-        body.dark-mode .article-header h1 {
-          color: #a0a0ff;
-        }
-        
-        .date {
-          color: #777;
-          font-style: italic;
-        }
-        
-        body.dark-mode .date {
-          color: #a0a0ff;
-        }
-        
-        /* Adjust article image size */
-        .article-image {
-          display: block;
-          max-width: 70%; /* Reduced width */
-          height: auto;
-          margin: 20px auto; /* Center the image */
-          border-radius: 8px;
-          border: 4px solid var(--primary-color); /* Strong outline */
-          box-shadow: 0 0 0 2px white, 0 5px 15px rgba(0, 0, 0, 0.25); /* White outline around blue border */
-          padding: 2px; /* Small gap between image and border */
-        }
-        
-        body.dark-mode .article-image {
-          border-color: #6272d6; /* Lighter border for dark mode */
-          box-shadow: 0 0 0 2px #2d2d42, 0 5px 15px rgba(0, 0, 0, 0.4); /* Dark outline in dark mode */
-        }
-        
-        .content {
-          font-size: 16px;
-          line-height: 1.8;
-        }
-        
-        .content p {
-          margin-bottom: 20px;
-        }
-        
-        .section-title {
-          font-weight: bold;
-          font-size: 18px;
-          margin: 30px 0 15px;
-          color: var(--primary-color);
-        }
-        
-        body.dark-mode .section-title {
-          color: #a0a0ff;
-        }
-        
-        ul {
-          padding-left: 20px;
-          margin-bottom: 25px;
-        }
-        
-        li {
-          margin-bottom: 10px;
-        }
-        
-        body.dark-mode li {
-          color: #e0e0e0;
-        }
-        
-        /* Footer Styles - Updated for uniformity */
-        footer {
-          flex-shrink: 0;
-          width: 100%;
-          background-color: var(--primary-color);
-          color: white;
-          padding: 15px 20px;
-          margin-top: auto;
-          box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-          position: relative;
-        }
-        
-        /* Footer content layout */
-        .footer-content {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .footer-left {
-          margin-right: auto;
-        }
-        
-        .footer-right {
-          margin-left: auto;
-        }
-        
-        .social-links {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 0;
-          height: 30px;
-        }
-        
-        .social-links a {
-          color: white;
-          font-size: 1.8rem;
-          margin: 0 15px;
-          transition: transform 0.3s;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-        }
-        
-        .social-links a:hover {
-          transform: translateY(-5px);
-        }
-        
-        /* SVG icon styling */
-        .social-icon {
-          width: 24px;
-          height: 24px;
-          filter: brightness(0) invert(1); /* Makes any SVG white */
-          transition: transform 0.3s;
-          vertical-align: middle;
-        }
-
-        /* Footer left side - Twitter/X icon */
-        .footer-social {
-          color: white;
-          border: none;
-          padding: 0;
-          cursor: pointer;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          opacity: 0.9;
-        }
-
-        .footer-social:hover {
-          opacity: 1;
-          transform: scale(1.15);
-        }
-
-        .footer-social .social-icon {
-          width: 18px;
-          height: 18px;
-          filter: brightness(0) invert(1);
-        }
-
-        /* Footer right side - Publications button */
-        .footer-pub-btn {
-          color: white;
-          border: none;
-          padding: 0;
-          font-size: 12px;
-          cursor: pointer;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          opacity: 0.9;
-        }
-
-        .footer-pub-btn:hover {
-          opacity: 1;
-          transform: scale(1.1);
-        }
-
-        /* Responsive footer adjustments */
-        @media (max-width: 768px) {
-          footer {
-            padding: 12px 15px;
-          }
-
-          .footer-social .social-icon {
-            width: 16px;
-            height: 16px;
-          }
-
-          .footer-pub-btn {
-            font-size: 11px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          footer {
-            padding: 10px;
-          }
-
-          .footer-social .social-icon {
-            width: 14px;
-            height: 14px;
-          }
-
-          .footer-pub-btn {
-            font-size: 10px;
-          }
-        }
-        
-        footer p {
-          margin: 0;
-          padding: 0;
-          font-size: 1rem;
-          line-height: 1.5;
-        }
-
-        /* Publications button */
-        .hidden-pub-btn {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background-color: rgba(57, 67, 174, 0.7);
-          color: rgba(255, 255, 255, 0.9);
-          border: none;
-          padding: 10px 15px;
-          font-size: 14px;
-          cursor: pointer;
-          border-radius: 4px;
-          text-decoration: none;
-          opacity: 0.8;
-          z-index: 100;
-        }
-
-        .hidden-pub-btn:hover {
-          opacity: 1;
-          background-color: rgba(57, 67, 174, 0.9);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inefficiency in the Reductionist Approach to Solving the Human Genome · Omkar Chandra</title>
+<meta name="description" content="Why has reductionism only gone so far in solving the human genome?">
+<link rel="canonical" href="https://omkarchandra.github.io/not_able_to_solve_human_genome.html">
+<link rel="icon" href="/favicon.png">
+<link rel="alternate" type="application/atom+xml" title="Omkar Chandra" href="/feed.xml">
+<link rel="preload" href="/fonts/literata-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<meta property="og:title" content="Inefficiency in the Reductionist Approach to Solving the Human Genome">
+<meta property="og:description" content="Why has reductionism only gone so far in solving the human genome?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://omkarchandra.github.io/not_able_to_solve_human_genome.html">
+<script>
+try {
+  var t = localStorage.getItem("theme");
+  if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+} catch (e) {}
+</script>
 </head>
-
 <body>
-    <header>
-      <nav>
-        <a href="index.html">Blog</a>
-        <a href="field_notes.html">Field Notes</a>
-        <a href="about.html">About Me</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-      </button>
-    </header>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="sheet">
 
-    <div class="container">
-        <div class="article-header">
-            <h1>Inefficiency in the Reductionist Approach to Solving the Human Genome</h1>
-            <div class="date">June 30, 2024</div>
-        </div>
+<header class="row site-header">
+  <nav class="main site-nav" aria-label="Site">
+    <a href="/index.html" aria-current="true">Blog</a>
+    <a href="/field_notes.html">Field notes</a>
+    <a href="/publications.html">Publications</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
 
-        <img src="dna_strand_for_blog_reductionist_genome.png" alt="DNA strand representing complexity of human genome" class="article-image">
+<main id="content">
 
-        <div class="content">
-            <p>Why has reductionism only gone so far in solving the human genome?</p>
-            
-            <p>Reductionism is the school of thought focused on understanding and solving problems from the ground up.
-            For example, to understand how a mechanical clock works, it's best to deconstruct the device and analyze how the individual parts work together.</p>
-            
-            <p>This reductionist approach works well when the parts of a system under study are comprehensible (mechanical clock, computers). 
-            However, a living system like the human genome is complex:</p>
-            
-            <ul>
-                <li>It is made up of hundreds of thousands of elements. Starting from DNA itself, a functional unit of DNA is a gene, and there are around 63,000 potentially functional genes.</li>
-                <li>The complexity of the genome only increases with additional working layers like gene products (RNA transcripts), which number around 252,000.</li>
-                <li>The product of the genes (RNA transcripts) and their versions total about 230,000 transcripts.</li>
-                <li>The product of the transcripts (proteins) and their versions total about 130,700 proteins.</li>
-                <li>The interactions among different proteins.</li>
-                <li>The interaction among all the layers: genome, transcriptome, proteome, metabolome, cellular, physiological.</li>
-            </ul>
-            
-            <p>There is also the problem of signal extraction from the human genome, dealt with under the subfield of molecular biology and biotechnology. Right now, most of the signal data are:</p>
-            
-            <ul>
-                <li>Snap-shot: a single time point of the cells in a static state, by freezing the molecules in place, the dynamic signal is lost.</li>
-                <li>Hard to capture the signals at all the time points during the time-scale of the cells. Like the working time-scale of humans can be marked by the sleep-wake cycle, what about a cell? Each cell type, according to its repetitive processes, can have a putative working timescale drawn, and it is different for each cell type.</li>
-                <li>Hard to capture signals and integrate them at different layers (genome, transcriptome, etc.).</li>
-                <li>The signal is noisy and sparse.</li>
-            </ul>
-            
-            <p>The current data we get about a tissue or a single cell is context-independent, noisy, and working timescale-independent.</p>
-            
-            <div class="section-title">Possible solutions:</div>
-            <ul>
-                <li>Advancement of biotechnological approaches to extract signals at all levels (genome to metabolome) at all the time points a cell goes through during its working timescale.</li>
-                <li>Quit the reductionist approach.</li>
-            </ul>
-            
-            <p>One might argue that it's unnecessary to understand a cell's complete workings and ontology and that focusing solely on solving the cell cycle is sufficient. 
-            This approach of solving just the cell cycle suggests that capturing all the anchor points of the cell cycle should allow us to control the cell's fate to our desired outcomes. 
-            However, the cell cycle is dependent on various other processes like metabolism and cell signaling. Attempting to solve and integrate only the immediate 
-            dependent processes leads to the need of integrating a cascade of other processes, resulting in a tangled web of endless connections, much like pulling a thread from a tightly
-            wound ball of yarn.</p>
-            
-            <p>The best place where the reductionist approach has significant applications is in diagnostics.
-            Also, in investigations to understand the cellular behaviour under various stimuli.</p>
-        </div>
+<article>
+
+  <header class="row post-header">
+    <div class="main">
+      <p class="meta"><time datetime="2024-06-30">30 Jun 2024</time> · 3 min read</p>
+      <h1>Inefficiency in the Reductionist Approach to Solving the Human Genome</h1>
     </div>
+  </header>
 
-    <footer>
-      <div class="footer-content">
+  <div class="post-body">
+
+  <figure class="row figure"><div class="main"><img src="/images/dna_strand_for_blog_reductionist_genome.png" alt="Transmission electron microscope image of a λ-DNA fiber, with intensity profile and FFT pitch analysis" width="649" height="412"><figcaption><b>Figure 1.</b> From F. Gentile et al., “Direct Imaging of DNA Fibers: The Visage of Double Helix,” <i>Nano Letters</i> 12(12): 6453–6458 (2012). <a href="https://doi.org/10.1021/nl3039162">doi:10.1021/nl3039162</a></figcaption></div></figure>
+
+  <div class="row">
+    <div class="main">
+      <div class="prose">
+<p>Why has reductionism only gone so far in solving the human genome?</p>
+<p>Reductionism is the school of thought focused on understanding and solving problems from the ground up. For example, to understand how a mechanical clock works, it’s best to deconstruct the device and analyze how the individual parts work together.</p>
+<p>This reductionist approach works well when the parts of a system under study are comprehensible (mechanical clock, computers). However, a living system like the human genome is complex:</p>
+<ul>
+<li>It is made up of hundreds of thousands of elements. Starting from DNA itself, a functional unit of DNA is a gene, and there are around 63,000 potentially functional genes.</li>
+<li>The complexity of the genome only increases with additional working layers like gene products (RNA transcripts), which number around 252,000.</li>
+<li>The product of the genes (RNA transcripts) and their versions total about 230,000 transcripts.</li>
+<li>The product of the transcripts (proteins) and their versions total about 130,700 proteins.</li>
+<li>The interactions among different proteins.</li>
+<li>The interaction among all the layers: genome, transcriptome, proteome, metabolome, cellular, physiological.</li>
+</ul>
+<p>There is also the problem of signal extraction from the human genome, dealt with under the subfield of molecular biology and biotechnology. Right now, most of the signal data are:</p>
+<ul>
+<li>Snap-shot: a single time point of the cells in a static state, by freezing the molecules in place, the dynamic signal is lost.</li>
+<li>Hard to capture the signals at all the time points during the time-scale of the cells. Like the working time-scale of humans can be marked by the sleep-wake cycle, what about a cell? Each cell type, according to its repetitive processes, can have a putative working timescale drawn, and it is different for each cell type.</li>
+<li>Hard to capture signals and integrate them at different layers (genome, transcriptome, etc.).</li>
+<li>The signal is noisy and sparse.</li>
+</ul>
+<p>The current data we get about a tissue or a single cell is context-independent, noisy, and working timescale-independent.</p>
+<h2>Possible solutions</h2>
+<ul>
+<li>Advancement of biotechnological approaches to extract signals at all levels (genome to metabolome) at all the time points a cell goes through during its working timescale.</li>
+<li>Quit the reductionist approach.</li>
+</ul>
+<p>One might argue that it’s unnecessary to understand a cell’s complete workings and ontology and that focusing solely on solving the cell cycle is sufficient. This approach of solving just the cell cycle suggests that capturing all the anchor points of the cell cycle should allow us to control the cell’s fate to our desired outcomes. However, the cell cycle is dependent on various other processes like metabolism and cell signaling. Attempting to solve and integrate only the immediate dependent processes leads to the need of integrating a cascade of other processes, resulting in a tangled web of endless connections, much like pulling a thread from a tightly wound ball of yarn.</p>
+<p>The best place where the reductionist approach has significant applications is in diagnostics. Also, in investigations to understand the cellular behaviour under various stimuli.</p>
       </div>
-    </footer>
+    </div>
+  </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-          const body = document.body;
-          const icon = themeToggle.querySelector('i');
-          
-          themeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-              icon.classList.remove('fa-moon');
-              icon.classList.add('fa-sun');
-              localStorage.setItem('theme', 'dark');
-            } else {
-              icon.classList.remove('fa-sun');
-              icon.classList.add('fa-moon');
-              localStorage.setItem('theme', 'light');
-            }
-          });
-          
-          // Check for saved theme preference
-          const savedTheme = localStorage.getItem('theme');
-          if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-          }
-        }
-      });
-    </script>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="row site-footer">
+  <div class="main link-row">
+    <a href="/index.html">All posts</a>
+    <a href="/feed.xml">RSS</a>
+    <a href="mailto:omkarchandra.r@gmail.com">Email</a>
+    <button type="button" class="theme-toggle" data-theme-toggle hidden>Dark theme</button>
+  </div>
+</footer>
+
+</div>
+<script src="/site.js" defer></script>
 </body>
 </html>

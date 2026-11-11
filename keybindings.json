@@ -1,5 +1,0 @@
-{
-  "key": "alt+l",
-  "command": "extension.liveServer.goOnline",
-  "when": "editorTextFocus && editorLangId == 'html'"
-} 

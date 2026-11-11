@@ -1,495 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-  <title>Omkar Chandra - Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset and Variables */
-    :root {
-      --primary-color: rgb(57, 67, 174);
-      --light-bg: #FDFBF7;
-      --dark-bg: #1a1a2e;
-      --light-text: #000000;
-      --dark-text: #ffffff;
-      --accent-color: #e9d3dc;
-      --transition-speed: 0.3s;
-      --header-height: 50px;
-      --footer-padding: 30px;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    html, body {
-      height: 100%;
-      min-height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Roboto', Verdana, sans-serif;
-      background-color: var(--light-bg);
-      color: var(--light-text);
-      padding-top: var(--header-height); /* Exact header height */
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    
-    body.dark-mode {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
-    }
-    
-    /* Unified header and footer styles with EXACTLY the same dimensions */
-    header, footer {
-      background-color: var(--primary-color);
-      color: white;
-      width: 100%;
-      height: 50px; /* Exact same height */
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Header-specific positioning */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      justify-content: space-between;
-    }
-    
-    /* Footer-specific layout */
-    footer {
-      position: relative;
-      margin-top: 50px;
-      justify-content: center;
-      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Flip the shadow direction */
-    }
-    
-    
-    nav {
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omkar Chandra</title>
+<meta name="description" content="Essays and notes by Omkar Chandra.">
+<link rel="canonical" href="https://omkarchandra.github.io/">
+<link rel="icon" href="/favicon.png">
+<link rel="alternate" type="application/atom+xml" title="Omkar Chandra" href="/feed.xml">
+<link rel="preload" href="/fonts/literata-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<meta property="og:title" content="Omkar Chandra">
+<meta property="og:description" content="Essays and notes by Omkar Chandra.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://omkarchandra.github.io/">
+<script>
+try {
+  var t = localStorage.getItem("theme");
+  if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+} catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="sheet">
 
-    nav a {
-      color: var(--accent-color);
-      text-decoration: none;
-      padding: 15px 20px;
-      display: inline-block;
-      position: relative;
-    }
-    
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      transition: width 0.3s;
-    }
-    
-    nav a:hover::after {
-      width: 100%;
-    }
-    
-    nav a.active {
-      background-color: rgba(255, 255, 255, 0.2);
-      border-bottom: 3px solid #fff;
-      font-weight: bold;
-    }
-    
-    .theme-toggle {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Main Content Container */
-    .container {
-      max-width: 1200px;
-      width: 100%;
-      margin: 20px auto;
-      padding: 0 20px;
-      flex: 1 0 auto; /* Grow to push footer down */
-    }
-    
-    /* Blog Post Styling - Improved */
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 0.5rem;
-    }
-    
-    .blog-posts {
-      display: grid;
-      gap: 2rem;
-    }
-    
-    .blog-card {
-      background-color: transparent;
-      border-radius: 0;
-      overflow: visible;
-      box-shadow: none;
-      transition: none;
-      padding: 0;
-    }
-    
-    body.dark-mode .blog-card {
-      background-color: transparent;
-    }
-    
-    .blog-card:hover {
-      transform: none;
-      box-shadow: none;
-    }
-    
-    .blog-image {
-      height: 240px;
-      background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .blog-content {
-      padding: 0;
-    }
-    
-    .blog-card h3 {
-      font-size: 1.3rem;
-      margin: 0;
-      line-height: 1.4;
-      color: var(--primary-color);
-    }
-    
-    body.dark-mode .blog-card h3 {
-      color: var(--primary-color);
-    }
-    
-    .blog-card h3 a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-    
-    .blog-card h3 a:hover {
-      opacity: 0.7;
-    }
-    
-    body.dark-mode .blog-card h3 a {
-      color: var(--primary-color);
-    }
-    
-    body.dark-mode .blog-card h3 a:hover {
-      opacity: 0.7;
-    }
-    
-    .read-more {
-      display: inline-block;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      margin-top: 0.5rem;
-      font-weight: 500;
-      transition: background-color 0.3s;
-    }
-    
-    .read-more:hover {
-      background-color: rgb(45, 53, 140);
-    }
-    
-    /* Footer Styles - Updated for uniformity */
-    footer {
-      flex-shrink: 0;
-      width: 100%;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 15px 20px;
-      margin-top: auto;
-      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-    
-    /* Footer content layout */
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .footer-left {
-      margin-right: auto;
-    }
-    
-    .footer-right {
-      margin-left: auto;
-    }
-    
-    /* SVG icon styling with proper alignment */
-    .social-links {
-      display: flex;
-      align-items: center;
-      height: 24px;
-    }
-    
-    .social-icon {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) invert(1); /* Makes any SVG white */
-      transition: transform 0.3s;
-      vertical-align: middle;
-    }
-    
-    /* Ensure copyright text aligns properly */
-    footer p {
-      margin: 0;
-      padding: 0;
-      font-size: 1rem;
-      line-height: 24px; /* Match the icon height */
-      display: flex;
-      align-items: center;
-    }
-    
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      header {
-        padding: 0 10px;
-      }
-      
-      nav a {
-        padding: 0 10px;
-      }
-    }
-    
-    /* Fix for social icons */
-    .social-links a {
-      color: white;
-      font-size: 1.8rem;
-      margin: 0 15px;
-      transition: transform 0.3s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      position: relative;
-    }
-    
-    /* Fallback text in case icon doesn't load */
-    .icon-fallback {
-      font-size: 1rem;
-      margin-left: 5px;
-      display: none;
-    }
-    
-    /* Show fallback if icon fails to load */
-    .fa-x-twitter:not(:before) + .icon-fallback {
-      display: inline;
-    }
-    
-    /* Additional check for Font Awesome */
-    .social-links a:before {
-      font-family: 'Font Awesome 6 Brands';
-      content: "\f26d";  /* Backup icon code */
-      visibility: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    
-    .social-links a:hover .social-icon {
-      transform: translateY(-5px);
-    }
+<header class="row site-header">
+  <nav class="main site-nav" aria-label="Site">
+    <a href="/index.html" aria-current="page">Blog</a>
+    <a href="/field_notes.html">Field notes</a>
+    <a href="/publications.html">Publications</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
 
-    /* Footer left side - Twitter/X icon */
-    .footer-social {
-      color: white;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.9;
-    }
+<main id="content">
 
-    .footer-social:hover {
-      opacity: 1;
-      transform: scale(1.15);
-    }
 
-    .footer-social .social-icon {
-      width: 18px;
-      height: 18px;
-      filter: brightness(0) invert(1);
-    }
-
-    /* Footer right side - Publications button */
-    .footer-pub-btn {
-      color: white;
-      border: none;
-      padding: 0;
-      font-size: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      opacity: 0.9;
-    }
-
-    .footer-pub-btn:hover {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-
-    /* Responsive footer adjustments */
-    @media (max-width: 768px) {
-      footer {
-        padding: 12px 15px;
-      }
-
-      .footer-social .social-icon {
-        width: 16px;
-        height: 16px;
-      }
-
-      .footer-pub-btn {
-        font-size: 11px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      footer {
-        padding: 10px;
-      }
-
-      .footer-social .social-icon {
-        width: 14px;
-        height: 14px;
-      }
-
-      .footer-pub-btn {
-        font-size: 10px;
-      }
-    }
-  </style>
-  </head>
-
-  <body>
-    <header>
-      <nav>
-        <a href="index.html" id="page-link-blog">Blog</a>
-        <a href="field_notes.html" id="page-link-fieldnotes">Field Notes</a>
-        <a href="about.html" id="page-link-about">About Me</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-      </button>
-    </header>
-
-    <div class="container">
-      <section id="Blog">
-        <div class="blog-posts">
-          <article class="blog-card">
-            <div class="blog-content">
-              <h3><a href="/not_able_to_solve_human_genome.html">Inefficiency in the Reductionist Approach to Solving the Human Genome</a></h3>
-            </div>
-          </article>
-        </div>
-      </section>
+  <article class="row entry">
+    <div class="main">
+      <p class="meta when"><time datetime="2024-06-30">30 Jun 2024</time> · Essay · 3 min read</p>
+      <h2><a href="/not_able_to_solve_human_genome.html">Inefficiency in the Reductionist Approach to Solving the Human Genome</a></h2>
+      <p class="summary">Why has reductionism only gone so far in solving the human genome?</p>
     </div>
+  </article>
 
-<footer>
-  <div class="footer-content">
+
+</main>
+
+<footer class="row site-footer">
+  <div class="main link-row">
+    <a href="/feed.xml">RSS</a>
+    <a href="mailto:omkarchandra.r@gmail.com">Email</a>
+    <button type="button" class="theme-toggle" data-theme-toggle hidden>Dark theme</button>
   </div>
 </footer>
 
-    <!-- Keep only necessary JavaScript -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-        
-        themeToggle.addEventListener('click', function() {
-          body.classList.toggle('dark-mode');
-          
-          if (body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-          } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-          }
-        });
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          body.classList.add('dark-mode');
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-        }
-      });
-
-      // Check if Font Awesome loaded properly
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          const iconElements = document.querySelectorAll('.fa-x-twitter');
-          iconElements.forEach(function(icon) {
-            // Check if icon is rendered properly
-            if (getComputedStyle(icon, ':before').content === 'none' || 
-                getComputedStyle(icon, ':before').content === '') {
-              // If icon didn't load, show fallback
-              const fallback = icon.nextElementSibling;
-              if (fallback && fallback.classList.contains('icon-fallback')) {
-                fallback.style.display = 'inline';
-              }
-              // Alternative: try loading alternative Twitter icon
-              icon.classList.remove('fa-x-twitter');
-              icon.classList.add('fa-twitter');
-            }
-          });
-        }, 500);  // Give Font Awesome time to load
-      });
-    </script>
-  </body>
+</div>
+<script src="/site.js" defer></script>
+</body>
 </html>
-
-
-

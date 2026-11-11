@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Omkar Chandra</title>
+  <link rel="self" type="application/atom+xml" href="https://omkarchandra.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://omkarchandra.github.io/"/>
+  <id>https://omkarchandra.github.io/</id>
+  <updated>2024-06-30T00:00:00Z</updated>
+  <author><name>Omkar Chandra</name></author>
+
+  <entry>
+    <title>Inefficiency in the Reductionist Approach to Solving the Human Genome</title>
+    <link rel="alternate" type="text/html" href="https://omkarchandra.github.io/not_able_to_solve_human_genome.html"/>
+    <id>https://omkarchandra.github.io/not_able_to_solve_human_genome.html</id>
+    <published>2024-06-30T00:00:00Z</published>
+    <updated>2024-06-30T00:00:00Z</updated>
+    <summary>Why has reductionism only gone so far in solving the human genome?</summary>
+    <content type="html">&lt;figure&gt;&lt;img src=&#34;https://omkarchandra.github.io/images/dna_strand_for_blog_reductionist_genome.png&#34; alt=&#34;Transmission electron microscope image of a λ-DNA fiber, with intensity profile and FFT pitch analysis&#34; width=&#34;649&#34; height=&#34;412&#34;&gt;&lt;figcaption&gt;From F. Gentile et al., “Direct Imaging of DNA Fibers: The Visage of Double Helix,” &lt;i&gt;Nano Letters&lt;/i&gt; 12(12): 6453–6458 (2012). &lt;a href=&#34;https://doi.org/10.1021/nl3039162&#34;&gt;doi:10.1021/nl3039162&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Why has reductionism only gone so far in solving the human genome?&lt;/p&gt;
+&lt;p&gt;Reductionism is the school of thought focused on understanding and solving problems from the ground up. For example, to understand how a mechanical clock works, it’s best to deconstruct the device and analyze how the individual parts work together.&lt;/p&gt;
+&lt;p&gt;This reductionist approach works well when the parts of a system under study are comprehensible (mechanical clock, computers). However, a living system like the human genome is complex:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is made up of hundreds of thousands of elements. Starting from DNA itself, a functional unit of DNA is a gene, and there are around 63,000 potentially functional genes.&lt;/li&gt;
+&lt;li&gt;The complexity of the genome only increases with additional working layers like gene products (RNA transcripts), which number around 252,000.&lt;/li&gt;
+&lt;li&gt;The product of the genes (RNA transcripts) and their versions total about 230,000 transcripts.&lt;/li&gt;
+&lt;li&gt;The product of the transcripts (proteins) and their versions total about 130,700 proteins.&lt;/li&gt;
+&lt;li&gt;The interactions among different proteins.&lt;/li&gt;
+&lt;li&gt;The interaction among all the layers: genome, transcriptome, proteome, metabolome, cellular, physiological.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is also the problem of signal extraction from the human genome, dealt with under the subfield of molecular biology and biotechnology. Right now, most of the signal data are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Snap-shot: a single time point of the cells in a static state, by freezing the molecules in place, the dynamic signal is lost.&lt;/li&gt;
+&lt;li&gt;Hard to capture the signals at all the time points during the time-scale of the cells. Like the working time-scale of humans can be marked by the sleep-wake cycle, what about a cell? Each cell type, according to its repetitive processes, can have a putative working timescale drawn, and it is different for each cell type.&lt;/li&gt;
+&lt;li&gt;Hard to capture signals and integrate them at different layers (genome, transcriptome, etc.).&lt;/li&gt;
+&lt;li&gt;The signal is noisy and sparse.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The current data we get about a tissue or a single cell is context-independent, noisy, and working timescale-independent.&lt;/p&gt;
+&lt;h2&gt;Possible solutions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Advancement of biotechnological approaches to extract signals at all levels (genome to metabolome) at all the time points a cell goes through during its working timescale.&lt;/li&gt;
+&lt;li&gt;Quit the reductionist approach.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One might argue that it’s unnecessary to understand a cell’s complete workings and ontology and that focusing solely on solving the cell cycle is sufficient. This approach of solving just the cell cycle suggests that capturing all the anchor points of the cell cycle should allow us to control the cell’s fate to our desired outcomes. However, the cell cycle is dependent on various other processes like metabolism and cell signaling. Attempting to solve and integrate only the immediate dependent processes leads to the need of integrating a cascade of other processes, resulting in a tangled web of endless connections, much like pulling a thread from a tightly wound ball of yarn.&lt;/p&gt;
+&lt;p&gt;The best place where the reductionist approach has significant applications is in diagnostics. Also, in investigations to understand the cellular behaviour under various stimuli.&lt;/p&gt;</content>
+  </entry>
+
+</feed>

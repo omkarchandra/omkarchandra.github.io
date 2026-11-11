@@ -1,475 +1,94 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>About Omkar Chandra</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-      :root {
-        --primary-color: rgb(57, 67, 174);
-        --light-bg: #FDFBF7;
-        --dark-bg: #1a1a2e;
-        --light-text: #000000;
-        --dark-text: #ffffff;
-        --accent-color: #e9d3dc;
-        --transition-speed: 0.3s;
-      }
-      
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Omkar Chandra</title>
+<meta name="description" content="About Omkar Chandra: interests, favorite books and blogs, and useful links.">
+<link rel="canonical" href="https://omkarchandra.github.io/about.html">
+<link rel="icon" href="/favicon.png">
+<link rel="alternate" type="application/atom+xml" title="Omkar Chandra" href="/feed.xml">
+<link rel="preload" href="/fonts/literata-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<meta property="og:title" content="About Omkar Chandra">
+<meta property="og:description" content="About Omkar Chandra: interests, favorite books and blogs, and useful links.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://omkarchandra.github.io/about.html">
+<script>
+try {
+  var t = localStorage.getItem("theme");
+  if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+} catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="sheet">
 
+<header class="row site-header">
+  <nav class="main site-nav" aria-label="Site">
+    <a href="/index.html">Blog</a>
+    <a href="/field_notes.html">Field notes</a>
+    <a href="/publications.html">Publications</a>
+    <a href="/about.html" aria-current="page">About</a>
+  </nav>
+</header>
 
+<main id="content">
 
-      * {
-        box-sizing: border-box;
-        transition: background-color var(--transition-speed), color var(--transition-speed);
-      }
-      
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      
-      body {
-        font-family: Verdana;
-        background-color: var(--light-bg);
-        color: var(--light-text);
-        padding-top: 50px;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-      
-      body.dark-mode {
-        background-color: var(--dark-bg);
-        color: var(--dark-text);
-      }
-      
-      body.dark-mode .about-section,
-      body.dark-mode .contact {
-        background-color: #2d2d42;
-        color: var(--dark-text);
-      }
-      
-      body.dark-mode a {
-        color: #a0a0ff;
-      }
-      
-      header {
-        background-color: var(--primary-color); 
-        color: rgb(255, 255, 255);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-      }
-      
-      /* Footer Styles - Updated for uniformity */
-      footer {
-        flex-shrink: 0;
-        width: 100%;
-        background-color: var(--primary-color);
-        color: white;
-        padding: 15px 20px;
-        margin-top: auto;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-        position: relative;
-      }
-      
-      /* Footer content layout */
-      footer .footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-      
-      .footer-left {
-        margin-right: auto;
-      }
-      
-      .footer-right {
-        margin-left: auto;
-      }
-      
-      .social-links {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 0;
-        height: 30px;
-      }
-      
-      .social-links a {
-        color: white;
-        font-size: 1.8rem;
-        margin: 0 15px;
-        transition: transform 0.3s;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-      }
-      
-      .social-links a:hover {
-        transform: translateY(-5px);
-      }
-      
-      footer p {
-        margin: 0;
-        padding: 0;
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-      
-      nav {
-        display: flex;
-        padding: 0;
-      }
-            
-      nav a {
-        color: #e9d3dc;
-        text-decoration: none;
-        padding: 15px 20px;
-        display: inline-block;
-      }
-      
-      nav a.active {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-bottom: 3px solid #fff;
-        font-weight: bold;
-      }
-      
-      .theme-toggle {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.2rem;
-        cursor: pointer;
-        padding: 10px;
-      }
-      
-      .container {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 0 20px;
-        flex: 1;
-      }
-      
-      .page-title {
-        text-align: center;
-        margin-bottom: 40px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #e0e0e0;
-      }
-      
-      h1 {
-        font-size: 28px;
-        font-weight: normal;
-        color: #222;
-        margin-bottom: 20px;
-      }
-      
-      body.dark-mode h1 {
-        color: #fff;
-      }
-      
-      .about-container {
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .about-section {
-        background-color: white;
-        padding: 30px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-      
-      .contact {
-        background-color: white;
-        padding: 20px 30px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-      }
-      
-      .contact a {
-        color: rgb(57, 67, 174);
-        text-decoration: none;
-      }
-      
-      .contact a:hover {
-        text-decoration: underline;
-      }
+  <header class="row post-header">
+    <div class="main">
+      <h1>About Omkar Chandra</h1>
+    </div>
+  </header>
 
-      /* SVG icon styling */
-      .social-icon {
-        width: 24px;
-        height: 24px;
-        filter: brightness(0) invert(1); /* Makes any SVG white */
-        transition: transform 0.3s;
-        vertical-align: middle;
-      }
-
-      .social-links a:hover .social-icon {
-        transform: translateY(-5px);
-      }
-
-      /* Footer left side - Twitter/X icon */
-      .footer-left {
-        display: flex;
-        align-items: center;
-      }
-
-      .footer-social {
-        color: white;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.9;
-      }
-
-      .footer-social:hover {
-        opacity: 1;
-        transform: scale(1.15);
-      }
-
-      .footer-social .social-icon {
-        width: 18px;
-        height: 18px;
-        filter: brightness(0) invert(1);
-      }
-
-      /* Footer right side - Publications button */
-      .footer-right {
-        display: flex;
-        align-items: center;
-      }
-
-      .footer-pub-btn {
-        color: white;
-        border: none;
-        padding: 0;
-        font-size: 12px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        opacity: 0.9;
-      }
-
-      .footer-pub-btn:hover {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-
-      /* Responsive footer adjustments */
-      @media (max-width: 768px) {
-        footer {
-          padding: 12px 15px;
-        }
-
-        .footer-social .social-icon {
-          width: 16px;
-          height: 16px;
-        }
-
-        .footer-pub-btn {
-          font-size: 11px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        footer {
-          padding: 10px;
-        }
-
-        .footer-social .social-icon {
-          width: 14px;
-          height: 14px;
-        }
-
-        .footer-pub-btn {
-          font-size: 10px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <nav>
-        <a href="index.html">Blog</a>
-        <a href="field_notes.html">Field Notes</a>
-        <a href="about.html" class="active">About Me</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-      </button>
-    </header>
-
-    <div class="container">
-      <div class="page-title">
-        <h1>About Omkar Chandra</h1>
-      </div>
-      
-      <div class="about-container">
-        <div class="about-section">
-          <p> Hi, I am Omkar Chandra, I am interested in developing principles and techniques for understanding and solving biological problems.
-            </p>
-        </div>
-
-        <div class="about-section">
-          <h3 class="section-subtitle">Favorite Books and Blogs (Reading/Read)</h3>
-          
-          <div class="favorites-container">
-            <div class="favorites-category">
-              <h4>Books</h4>
-              <ul class="favorites-list">
-                <li>
-                  <span class="favorite-title">"The Hobbit and The Lord of the Rings"</span>
-                  <span class="favorite-author">Author: J.R.R. Tolkien</span>
-                </li>
-                <li>
-                  <span class="favorite-title">"Snow Crash"</span>
-                  <span class="favorite-author">Author: Neal Stephenson</span>
-                </li>
-                <li>
-                  <span class="favorite-title">"What Is Mathematics?"</span>
-                  <span class="favorite-author">Authors: Richard Courant and Herbert Robbins</span>
-                </li>
-                <li>
-                  <span class="favorite-title">"Lehninger Principles of Biochemistry"</span>
-                  <span class="favorite-author">Authors: David L. Nelson and Michael M. Cox</span>
-                </li>
-                <li>
-                  <span class="favorite-title">"A Mind For Numbers"</span>
-                  <span class="favorite-author">Author: Barbara Oakley</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div class="favorites-category">
-              <h4>Blogs</h4>
-              <ul class="favorites-list">
-                <li>
-                  <a href="https://geohot.github.io/blog/" target="_blank" class="favorite-link">
-                    <span class="favorite-title">the singularity is nearer</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://thoughtforms.life/" target="_blank" class="favorite-link">
-                    <span class="favorite-title">Forms of life, forms of mind </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.astralcodexten.com/" target="_blank" class="favorite-link">
-                    <span class="favorite-title">Astral Codex Ten</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            
-            <div class="favorites-category">
-              <h4>Posts/Articles</h4>
-              <ul class="favorites-list">
-                <li>
-                  <a href="https://roonscape.ai/p/a-song-of-shapes-and-words" target="_blank" class="favorite-link">
-                    <span class="favorite-title">A Song of Shapes and Words</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            
-            <div class="favorites-category">
-              <h4>Publications</h4>
-              <ul class="favorites-list">
-                <li>
-                  <a href="publications.html" class="favorite-link">
-                    <span class="favorite-title">Publications</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="about-section">
-          <h3 class="section-subtitle">Useful Links</h3>
-          
-          <div class="favorites-container">
-            <div class="favorites-category">
-              <ul class="favorites-list">
-                <li>
-                  <a href="https://play.google.com/store/apps/details?id=com.underthing.focus.friend&hl=en_US" target="_blank" class="favorite-link">
-                    <span class="favorite-title">Focus Friend (Play Store)</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/omkarchandra/focus-guard" target="_blank" class="favorite-link">
-                    <span class="favorite-title">Focus Guard (GitHub)</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact">
-          <p>Contact: <a href="mailto:omkarchandra.r@gmail.com">omkarchandra.r@gmail.com</a></p>
-        </div>
+  <div class="post-body">
+  <div class="row">
+    <div class="main">
+      <div class="prose">
+<p>Hi, I am Omkar Chandra, I am interested in developing principles and techniques for understanding and solving biological problems.</p>
+<h2>Favorite Books and Blogs (Reading/Read)</h2>
+<h3>Books</h3>
+<ul>
+<li>"The Hobbit and The Lord of the Rings"<br><span class="meta">Author: J.R.R. Tolkien</span></li>
+<li>"Snow Crash"<br><span class="meta">Author: Neal Stephenson</span></li>
+<li>"What Is Mathematics?"<br><span class="meta">Authors: Richard Courant and Herbert Robbins</span></li>
+<li>"Lehninger Principles of Biochemistry"<br><span class="meta">Authors: David L. Nelson and Michael M. Cox</span></li>
+<li>"A Mind For Numbers"<br><span class="meta">Author: Barbara Oakley</span></li>
+</ul>
+<h3>Blogs</h3>
+<ul>
+<li><a href="https://geohot.github.io/blog/">the singularity is nearer</a></li>
+<li><a href="https://thoughtforms.life/">Forms of life, forms of mind</a></li>
+<li><a href="https://www.astralcodexten.com/">Astral Codex Ten</a></li>
+</ul>
+<h3>Posts/Articles</h3>
+<ul>
+<li><a href="https://roonscape.ai/p/a-song-of-shapes-and-words">A Song of Shapes and Words</a></li>
+</ul>
+<h2>Useful Links</h2>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.underthing.focus.friend&amp;hl=en_US">Focus Friend (Play Store)</a></li>
+<li><a href="https://github.com/omkarchandra/focus-guard">Focus Guard (GitHub)</a></li>
+</ul>
+<h2>Contact</h2>
+<p>Contact: <a href="mailto:omkarchandra.r@gmail.com">omkarchandra.r@gmail.com</a></p>
       </div>
     </div>
-    
-    <footer>
-      <div class="footer-content">
-      </div>
-    </footer>
+  </div>
+  </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-        
-        themeToggle.addEventListener('click', function() {
-          body.classList.toggle('dark-mode');
-          
-          if (body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-          } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-          }
-        });
-        
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          body.classList.add('dark-mode');
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-        }
+</main>
 
-      });
-    </script>
-  </body>
-</html> 
+<footer class="row site-footer">
+  <div class="main link-row">
+    <a href="/feed.xml">RSS</a>
+    <a href="mailto:omkarchandra.r@gmail.com">Email</a>
+    <button type="button" class="theme-toggle" data-theme-toggle hidden>Dark theme</button>
+  </div>
+</footer>
+
+</div>
+<script src="/site.js" defer></script>
+</body>
+</html>
